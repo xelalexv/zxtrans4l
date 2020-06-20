@@ -1,4 +1,4 @@
 *.o
 zxtrans
 *.sublime*
-*.bin
+*.sna
