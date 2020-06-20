@@ -25,9 +25,9 @@
 #define _WIN32
 
 CC=gcc
-CFLAGS=-g -std=c99 -O3 -I/c/opt/include -I.
+CFLAGS=-g -std=c99 -O3 -I/usr/include -I.
 
-LDFLAGS =  -L/c/opt/lib -L. ../libspectrum-8.dll /c/opt/bin/libserialport.dll
+LDFLAGS=-L. -lspectrum -lserialport
 
 EXECUTABLE=../zxtrans
 EXECUTABLE3=../zxtrans3
@@ -36,7 +36,7 @@ Z80_BIN_3=../zxtrans_receiver_plus3.bin
 ASM=z80asm
 
 zxtrans: zxtrans_sender.o Makefile zxtrans_receiver_plus3.bin zxtrans_receiver_inf1.bin
-	$(CC) $(LDFLAGS) -o $(EXECUTABLE) zxtrans_sender.o
+	$(CC) -o $(EXECUTABLE) zxtrans_sender.o $(LDFLAGS)
 
 zxtrans_sender.o: zxtrans_sender.c Makefile
 	$(CC) $(CFLAGS) -c -o zxtrans_sender.o zxtrans_sender.c

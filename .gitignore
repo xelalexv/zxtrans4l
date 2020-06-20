@@ -1,0 +1,4 @@
+*.o
+zxtrans
+*.sublime*
+*.bin

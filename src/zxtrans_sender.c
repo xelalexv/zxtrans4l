@@ -39,6 +39,7 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <getopt.h>
 #include <libspectrum.h>
 #include <libserialport.h>
 #include <time.h>
@@ -46,7 +47,7 @@
 libspectrum_byte lowByte(libspectrum_word regPair);
 libspectrum_byte highByte(libspectrum_word regPair);
 void usage(void);
-inline int zxtrans_write_block(struct sp_port *port,	      \
+static inline int zxtrans_write_block(struct sp_port *port,	      \
 			       const libspectrum_byte *buf,   \
 			       size_t count, int serialMode,  \
 			       unsigned int timeout_ms);
@@ -828,7 +829,7 @@ void usage(void){
   return;
 }
 
-inline int zxtrans_write_block(struct sp_port *port,	      \
+static inline int zxtrans_write_block(struct sp_port *port,	      \
 			       const libspectrum_byte *buf,   \
 			       size_t count, int serialMode,  \
 			       unsigned int timeout_ms){
